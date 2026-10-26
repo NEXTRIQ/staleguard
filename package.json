@@ -19,6 +19,6 @@
   },
   "scripts": {
     "start": "node bin/staleguard.mjs",
-    "test": "node --test \"test/*.test.mjs\""
+    "test": "node --test test/*.test.mjs"
   }
 }
