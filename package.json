@@ -9,16 +9,38 @@
     "type": "git",
     "url": "https://github.com/NEXTRIQ/staleguard.git"
   },
-  "keywords": ["monitoring", "cron", "systemd", "heartbeat", "alerting", "freshness"],
+  "keywords": [
+    "monitoring",
+    "cron",
+    "systemd",
+    "heartbeat",
+    "alerting",
+    "freshness"
+  ],
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "bin": {
-    "staleguard": "bin/staleguard.mjs"
+    "staleguard": "dist/bin/staleguard.js"
   },
   "scripts": {
-    "start": "node bin/staleguard.mjs",
-    "test": "node --test test/*.test.mjs"
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run clean && tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test",
+    "start": "node dist/bin/staleguard.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "20.19.39",
+    "eslint": "10.2.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.59.0"
   }
 }

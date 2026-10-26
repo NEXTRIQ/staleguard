@@ -9,7 +9,7 @@ User=staleguard
 Group=staleguard
 EnvironmentFile=/etc/staleguard/env
 Environment=STALEGUARD_CONFIG=/etc/staleguard/staleguard.json
-ExecStart=/usr/bin/node /opt/staleguard/bin/staleguard.mjs
+ExecStart=/usr/bin/node /opt/staleguard/dist/bin/staleguard.js
 # Exit code 1 means "something is stale"; that is a finding, not a unit failure.
 SuccessExitStatus=1
 StateDirectory=staleguard
