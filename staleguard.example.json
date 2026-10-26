@@ -1,0 +1,23 @@
+{
+  "hostLabel": "server-1",
+  "remindEvery": "6h",
+  "checks": [
+    {
+      "name": "invoice-forwarder",
+      "file": "/var/lib/exact-forwarder/status.json",
+      "field": "lastOkAt",
+      "maxAge": "1h"
+    },
+    {
+      "name": "nightly-db-backup",
+      "mtime": "/var/backups/db/latest.sql.gz",
+      "maxAge": "26h"
+    },
+    {
+      "name": "public-api",
+      "url": "https://api.example.com/health",
+      "field": "jobs.sync.lastSuccessAt",
+      "maxAge": "15m"
+    }
+  ]
+}

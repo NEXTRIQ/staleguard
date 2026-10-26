@@ -1,0 +1,24 @@
+{
+  "name": "staleguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Alert when scheduled jobs stop succeeding, by checking how fresh their last success is instead of trusting exit codes.",
+  "license": "MIT",
+  "author": "NEXTRIQ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NEXTRIQ/staleguard.git"
+  },
+  "keywords": ["monitoring", "cron", "systemd", "heartbeat", "alerting", "freshness"],
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "staleguard": "bin/staleguard.mjs"
+  },
+  "scripts": {
+    "start": "node bin/staleguard.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  }
+}
